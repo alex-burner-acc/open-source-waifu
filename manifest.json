@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "AI Assistant",
+  "version": "1.0",
+  "description": "AI assistant for google chrome.",
+  "permissions": [
+    "sidePanel",
+    "scripting",
+    "tabs",
+    "webNavigation",
+    "scripting",
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["scripts/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open Assistant",
+    "default_icon": {
+      "16": "images/logo-16.png",
+      "32": "images/logo-34.png",
+      "48": "images/logo-48.png",
+      "128": "images/logo-128.png"
+    }
+  },
+  "icons": {
+    "16": "images/logo-16.png",
+    "32": "images/logo-34.png",
+    "48": "images/logo-48.png",
+    "128": "images/logo-128.png"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  }
+}
